@@ -1,0 +1,6 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = https://ALBERTIK97@bitbucket.org/ALBERTIK97/sd.git
