@@ -1,4 +1,4 @@
-//Apuntes de SD para hacer el servidor
+//Apuntes de SD para hacer el servidor prueba gitd
 
 Los sockets permiten la comunicación de procesos en SO remotos
 (Para gastar sockets hay que usar un libreria)
