@@ -1,0 +1,63 @@
+//Apuntes de SD para hacer el servidor
+
+Los sockets permiten la comunicación de procesos en SO remotos
+(Para gastar sockets hay que usar un libreria)
+
+Funcionamiento del api del sockets
+//por el lado del servidor
+sockets
+	|
+	|
+bind (asocia un socket con un puerto)
+	|
+	|
+listen(funcion que espera conexiones entrantes )
+	|
+	|
+accept(acepta una conexion entrante)
+
+	|
+	Espera...
+	|
+read,recv,recvfrom(leen o reciben datos)
+	|
+writte,send,sendto(escriben o envian datos)
+	|
+close(cierra la conexion)
+
+
+//nombre del servidor mi_httpd
+	-los recursos del servidor deben residir en la carpeta DocumentRoot(que deberá leer
+	el fichero de condiguracion mi_httpd.conf)
+	-Debe mantener la conexion durante la comunicacion
+	-Puede ser orientaod a texto
+	-Protocolo peticion respuesta
+	-Peticiones por comoandos, deben ser contestadas por el servidor
+	-no tendra estado
+	-Debe utilizar la libreria sockets
+Se invocará de la siguiente manera mi_httpd [puerto] [-c archivo_configuracion]
+Utilizará por defecto el puerto 8880, sino el indicado por el archivo de configuracion(Listen)
+
+1*Tiene que abrir un socket en el puerto indicado y esperar mensajes del navegador web
+2*Debe ser capaz de atender peticiones de forma concurrente
+3*El numero máximo de clientes debe ser el de la configuracion(MaxClients)
+4*Aceptará peticiones http y las respondera
+5*No hay que implementar HTTP al completo solo estos(VER EN ENUNCIADO PARA MAS INFO)
+	-Peticiones HTTP
+	-Respuesta HTTP
+	-Errores
+6*Archivo de configuracion
+	-mi_httpd.conf
+	-Debe tener estos parametros minimo
+		*DocumentRoot(directorio del los recursos del servidor)
+		*DirectoryIndex(En caso de no encontrar un recurso concreto se utiliza el indicado aqui Ejemplo index.html)
+		*MaxClients(maximo de clientes)
+		*Listen(puerto por el que escucha)
+
+////************************1.0 vERSION DEL SERVER************************////
+Capaza de atender solicitudes GET en el puerto 8880,no hace falta que lea la conf,ni 
+que trate la cabecera de solicitud
+
+///****************1.0 Version del Cliente mi_wget*****************************/////
+Debe ser capaz de operar con el servidor, solo tiene que implemetar solicitudes get
+en la fases 1 y 2
